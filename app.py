@@ -14,7 +14,27 @@ ven = soup.find('span', {'class': 'venue'}).contents
 dat = soup.find('span', {'class': 'date-time'}).contents
 ti = soup.find('span', {'class': 'date-time local'}).contents
 print("F C Barcelona is playing "+opp[0]+" at "+ven[0])
-
+time1 = ti[0];
+hours1 = int(time1[0:2]);
+min1 = int(time1[3:5]);
+date = dat[0];
+month = int(date[0:2]);
+day = int(date[3:5]);
+year = int(date[7:10]);
+year = year+2000
+now  = datetime.datetime.now()
+a = datetime.datetime(now.year,now.month,now.day,now.hour,now.minute,00)
+b = datetime.datetime(year,month,day,hours1,min1,00)
+d = b + datetime.timedelta(hours = 3, minutes = 30)
+val = (d-a)
+days, seconds = val.days, val.seconds
+hours = (days-1) * 24 + seconds // 3600
+minutes = (seconds % 3600) // 60
+seconds = seconds % 60
+print(days)
+print(hours)
+print(minutes)
+print(val)
 app = Flask(__name__)
 
 @app.route("/")

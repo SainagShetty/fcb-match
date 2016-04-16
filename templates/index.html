@@ -7,7 +7,26 @@
     <link href="static/css/timeTo.css" type="text/css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-     
+      body {
+          background: url('static/css/bk.jpeg') no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        color:#fff;
+         
+      }
+      body:after {
+          content: "";
+          background: url(http://subtlepatterns.com/patterns/bo_play_pattern.png) repeat;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          position: absolute;
+          opacity: 0.4;
+          z-index: -2;   
+      }
       body {
 
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -25,7 +44,26 @@
     <div id="countdown-3"  class="text-center"></div>
      
     </div>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="static/js/jquery.time-to.js"></script>
+    <script>
+        var d = new Date();
+        var today = new Date();
+        d.setDate({% if days %}{{days}}{% endif %}+today.getDate());
+        d.setHours({% if hours %}{{hours}}{% endif %}+today.getHours()-5);
+        d.setMinutes({% if minutes %}{{minutes}}{% endif %}+today.getMinutes()-30);
+        console.log(d);
+        console.log({% if date %}{{date}}{% endif %});
+        $('#countdown-3').timeTo({
+            timeTo: d,
+            displayDays: 2,
+            theme: "black",
+            displayCaptions: true,
+            fontSize: 48,
+            captionSize: 14
+        });
+        
+    </script>
     <script src="static/js/bootstrap.js"></script>
   </body>
 </html>
