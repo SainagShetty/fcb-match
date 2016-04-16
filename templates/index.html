@@ -2,10 +2,30 @@
 <html>
   <head>
     <title>FC Barcelona's Next Match</title>
-    
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="static/css/application.css" rel="stylesheet" media="screen">
+    <link href="static/css/timeTo.css" type="text/css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+     
+      body {
+
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+    </style>
   </head>
   <body>
-  
+  <div style="margin-top: 50px">
+    <h1 class="text-center">FC Barcelona</h1>
+    <h2 class="text-center">plays</h2>
+    <h1 class="text-center">{% if opp %}{{opp}}{% endif %}</h1>
+    <h2 class="text-center">at</h2>
+    <h1 class="text-center">{% if ven %}{{ven}}{% endif %}</h1>
+    <h2 class="text-center">in</h2>
+    <div id="countdown-3"  class="text-center"></div>
+     
+    </div>
+    
     <script src="static/js/bootstrap.js"></script>
   </body>
 </html>
