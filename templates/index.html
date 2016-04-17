@@ -2,6 +2,10 @@
 <html>
   <head>
     <title>FC Barcelona's Next Match</title>
+    <meta name="author" content="Sainag Shetty">
+    <meta content="Find out the time left for next F C Barcelona's football match" name="description"/>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="static/css/timeTo.css" type="text/css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +57,7 @@
         d.setMinutes({% if minutes %}{{minutes}}{% endif %}+today.getMinutes()-30);
         console.log(d);
         console.log('days: ');
-        console.log({% if date %}{{date}}{% endif %});
+        console.log({% if days %}{{days}}{% endif %});
         console.log('hours: ');
         console.log({% if hours %}{{hours}}{% endif %});
         console.log('minutes: ');
@@ -69,5 +73,17 @@
         
     </script>
     <script src="static/js/bootstrap.js"></script>
+    <script>
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69063289-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    </script>
   </body>
 </html>
