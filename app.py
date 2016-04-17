@@ -28,7 +28,7 @@ b = datetime.datetime(year,month,day,hours1,min1,00)
 d = b + datetime.timedelta(hours = 3, minutes = 30)
 val = (d-a)
 days, seconds = val.days, val.seconds
-hours = (days-1) * 24 + seconds // 3600
+hours = (days) * 24 + seconds // 3600
 minutes = (seconds % 3600) // 60
 seconds = seconds % 60
 print(days)

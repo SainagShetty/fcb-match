@@ -3,7 +3,6 @@
   <head>
     <title>FC Barcelona's Next Match</title>
     <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="static/css/application.css" rel="stylesheet" media="screen">
     <link href="static/css/timeTo.css" type="text/css" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -53,7 +52,12 @@
         d.setHours({% if hours %}{{hours}}{% endif %}+today.getHours()-5);
         d.setMinutes({% if minutes %}{{minutes}}{% endif %}+today.getMinutes()-30);
         console.log(d);
+        console.log('days: ');
         console.log({% if date %}{{date}}{% endif %});
+        console.log('hours: ');
+        console.log({% if hours %}{{hours}}{% endif %});
+        console.log('minutes: ');
+        console.log({% if minutes %}{{minutes}}{% endif %});
         $('#countdown-3').timeTo({
             timeTo: d,
             displayDays: 2,
