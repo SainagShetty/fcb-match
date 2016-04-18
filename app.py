@@ -28,13 +28,8 @@ b = datetime.datetime(year,month,day,hours1,min1,00)
 d = b + datetime.timedelta(hours = 3, minutes = 30)
 val = (d-a)
 days, seconds = val.days, val.seconds
-hours = (days) * 24 + seconds // 3600
-minutes = (seconds % 3600) // 60
-seconds = seconds % 60
-print(days)
-print(hours)
-print(minutes)
-print(val)
+hours, remainder = divmod(seconds, 3600)
+minutes, seconds = divmod(remainder, 60)
 app = Flask(__name__)
 
 @app.route("/")
