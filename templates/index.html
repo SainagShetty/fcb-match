@@ -38,9 +38,9 @@
   </head>
   <body>
   <div style="margin-top: 50px">
-    <h1 class="text-center">FC Barcelona</h1>
+    <h1 class="text-center">{% if team1 %}{{team1}}{% endif %}</h1>
     <h2 class="text-center">plays</h2>
-    <h1 class="text-center">{% if opp %}{{opp}}{% endif %}</h1>
+    <h1 class="text-center">{% if team2 %}{{team2}}{% endif %}</h1>
     <h2 class="text-center">at</h2>
     <h1 class="text-center">{% if ven %}{{ven}}{% endif %}</h1>
     <h2 class="text-center">in</h2>
