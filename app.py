@@ -5,36 +5,25 @@ import requests
 import datetime
 from bs4 import BeautifulSoup as bs
 
-url = 'http://www.fcbarcelona.com/football'
+url = 'http://fans.fcbarcelona.com/'
 response = requests.get(url)
 html = response.content
 soup = bs(html)
-team1 = soup.find('span', {'class': 'away'}).contents
-team2 = soup.find('span', {'class': 'home'}).contents
-ven = soup.find('span', {'class': 'venue'}).contents
-dat = soup.find('span', {'class': 'date-time'}).contents
-ti = soup.find('span', {'class': 'date-time local'}).contents
-time1 = ti[0];
-hours1 = int(time1[0:2]);
-min1 = int(time1[3:5]);
-date = dat[0];
-month = int(date[0:2]);
-day = int(date[3:5]);
-year = int(date[7:10]);
-year = year+2000
-now  = datetime.datetime.now()
-a = datetime.datetime(now.year,now.month,now.day,now.hour,now.minute,00)
-b = datetime.datetime(year,month,day,hours1,min1,00)
-d = b + datetime.timedelta(hours = 3, minutes = 30)
-val = (d-a)
-days, seconds = val.days, val.seconds
-hours, remainder = divmod(seconds, 3600)
-minutes, seconds = divmod(remainder, 60)
+ht = soup.find('div',{'class':'m-match-team-home'}).contents
+at = soup.find('div',{'class':'m-match-team-away'}).contents
+ven = soup.find('span',{'class':'m-match-location'}).contents
+hometteam = ht[0]
+awayteam = at[0]
+venue = ven[2].strip('\n  '))
+dt = soup.find('div',{'class':'m-match-countdown'})
+dattime = dt['data-datetime']
+
+
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return render_template('index.html',team1 = team1[0], team2 = team2[0], ven = ven[0], days = days, hours = hours, minutes = minutes);
+    return render_template('index.html',home = hometteam, awayteam = awayteam, venue = venue,datetime = dattime);
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.

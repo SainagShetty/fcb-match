@@ -38,11 +38,11 @@
   </head>
   <body>
   <div style="margin-top: 50px">
-    <h1 class="text-center">{% if team1 %}{{team1}}{% endif %}</h1>
+    <h1 class="text-center">{% if hometeam %}{{hometeam}}{% endif %}</h1>
     <h2 class="text-center">plays</h2>
-    <h1 class="text-center">{% if team2 %}{{team2}}{% endif %}</h1>
+    <h1 class="text-center">{% if awayteam %}{{awayteam}}{% endif %}</h1>
     <h2 class="text-center">at</h2>
-    <h1 class="text-center">{% if ven %}{{ven}}{% endif %}</h1>
+    <h1 class="text-center">{% if venue %}{{venue}}{% endif %}</h1>
     <h2 class="text-center">in</h2>
     <div id="countdown-3"  class="text-center"></div>
      
@@ -50,18 +50,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="static/js/jquery.time-to.js"></script>
     <script>
-        var d = new Date();
-        var today = new Date();
-        d.setDate({% if days %}{{days}}{% endif %}+today.getDate());
-        d.setHours({% if hours %}{{hours}}{% endif %}+today.getHours()-5);
-        d.setMinutes({% if minutes %}{{minutes}}{% endif %}+today.getMinutes()-30);
-        console.log(d);
-        console.log('days: ');
-        console.log({% if days %}{{days}}{% endif %});
-        console.log('hours: ');
-        console.log({% if hours %}{{hours}}{% endif %});
-        console.log('minutes: ');
-        console.log({% if minutes %}{{minutes}}{% endif %});
+        var d = new Date({% if datetime %}{{datetime}}{% endif %});
         $('#countdown-3').timeTo({
             timeTo: d,
             displayDays: 2,
