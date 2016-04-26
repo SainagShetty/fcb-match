@@ -14,7 +14,7 @@ at = soup.find('div',{'class':'m-match-team-away'}).contents
 ven = soup.find('span',{'class':'m-match-location'}).contents
 hometteam = ht[0]
 awayteam = at[0]
-venue = ven[2].strip('\n  '))
+venue = ven[2].strip('\n  ')
 dt = soup.find('div',{'class':'m-match-countdown'})
 dattime = dt['data-datetime']
 
