@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return render_template('index.html',home = hometteam, awayteam = awayteam, venue = venue,datetime = dattime);
+    return render_template('index.html',hometteam = hometteam, awayteam = awayteam, venue = venue,datetime = dattime);
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
