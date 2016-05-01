@@ -12,7 +12,7 @@ soup = bs(html)
 ht = soup.find('div',{'class':'m-match-team-home'}).contents
 at = soup.find('div',{'class':'m-match-team-away'}).contents
 ven = soup.find('span',{'class':'m-match-location'}).contents
-hometteam = ht[0]
+hometeam = ht[0]
 awayteam = at[0]
 venue = ven[2].strip('\n  ')
 dt = soup.find('div',{'class':'m-match-countdown'})
@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return render_template('index.html',hometteam = hometteam, awayteam = awayteam, venue = venue,datetime = dattime);
+    return render_template('index.html',hometeam = hometeam, awayteam = awayteam, venue = venue,datetime = dattime);
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
