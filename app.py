@@ -17,12 +17,15 @@ awayteam = at[0]
 venue = ven[2].strip('\n  ')
 dt = soup.find('div',{'class':'m-match-countdown'})
 dattime = dt['data-datetime']
-
+if ht == '':
+    ht = "NULL"
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
+    if ht == "NULL":
+        return render_template('no-match.html');
     return render_template('index.html',hometeam = hometeam, awayteam = awayteam, venue = venue,datetime = dattime);
 
 if __name__ == '__main__':

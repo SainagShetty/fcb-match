@@ -37,30 +37,8 @@
     </style>
   </head>
   <body>
-  <div style="margin-top: 50px">
-    <h1 class="text-center">{% if hometeam %}{{hometeam}}{% endif %}</h1>
-    <h2 class="text-center">plays</h2>
-    <h1 class="text-center">{% if awayteam %}{{awayteam}}{% endif %}</h1>
-    <h2 class="text-center">at</h2>
-    <h1 class="text-center">{% if venue %}{{venue}}{% endif %}</h1>
-    <h2 class="text-center">in</h2>
-    <div id="countdown-3"  class="text-center"></div>
-
-    </div>
+    <h1>No FC Barcelona matches coming up</h1>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="static/js/jquery.time-to.js"></script>
-    <script>
-        var d = new Date({% if datetime %}{{datetime}}{% endif %});
-        $('#countdown-3').timeTo({
-            timeTo: d,
-            displayDays: 2,
-            theme: "black",
-            displayCaptions: true,
-            fontSize: 48,
-            captionSize: 14
-        });
-
-    </script>
     <script src="static/js/bootstrap.js"></script>
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
