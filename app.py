@@ -9,22 +9,23 @@ url = 'http://fans.fcbarcelona.com/'
 response = requests.get(url)
 html = response.content
 soup = bs(html)
-ht = soup.find('div',{'class':'m-match-team-home'}).contents
-at = soup.find('div',{'class':'m-match-team-away'}).contents
-ven = soup.find('span',{'class':'m-match-location'}).contents
-hometeam = ht[0]
-awayteam = at[0]
-venue = ven[2].strip('\n  ')
-dt = soup.find('div',{'class':'m-match-countdown'})
-dattime = dt['data-datetime']
-if ht == '':
-    ht = "NULL"
+try:
+    ht = soup.find('div',{'class':'m-match-team-home'}).contents
+    at = soup.find('div',{'class':'m-match-team-away'}).contents
+    ven = soup.find('span',{'class':'m-match-location'}).contents
+    hometeam = ht[0]
+    awayteam = at[0]
+    venue = ven[2].strip('\n  ')
+    dt = soup.find('div',{'class':'m-match-countdown'})
+    dattime = dt['data-datetime']
+except:
+    hometeam = "NULL"    
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    if ht == "NULL":
+    if hometeam == "NULL":
         return render_template('no-match.html');
     return render_template('index.html',hometeam = hometeam, awayteam = awayteam, venue = venue,datetime = dattime);
 
