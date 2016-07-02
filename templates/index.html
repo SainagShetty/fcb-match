@@ -36,16 +36,15 @@
 }
     </style>
   </head>
-  <body>
-  <div style="margin-top: 50px">
-    <h1 class="text-center">{% if hometeam %}{{hometeam}}{% endif %}</h1>
-    <h2 class="text-center">plays</h2>
-    <h1 class="text-center">{% if awayteam %}{{awayteam}}{% endif %}</h1>
-    <h2 class="text-center">at</h2>
-    <h1 class="text-center">{% if venue %}{{venue}}{% endif %}</h1>
-    <h2 class="text-center">in</h2>
-    <div id="countdown-3"  class="text-center"></div>
-
+  <body style="min-height: 100vh; display: flex !important;  align-items: center !important;">
+    <div style="margin-top: 50px" class="col-md-offset-3">
+      <h1 class="text-center">{% if hometeam %}{{hometeam}}{% endif %}</h1>
+      <h2 class="text-center">plays</h2>
+      <h1 class="text-center">{% if awayteam %}{{awayteam}}{% endif %}</h1>
+      <h2 class="text-center">at</h2>
+      <h1 class="text-center">{% if venue %}{{venue}}{% endif %}</h1>
+      <h2 class="text-center">in</h2>
+      <div id="countdown-3"  class="text-center"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="static/js/jquery.time-to.js"></script>
